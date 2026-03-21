@@ -1,0 +1,110 @@
+[
+    {
+      "id": "hills-adult-small-mini-2kg",
+      "name": "Hill's Science Diet Adult Small & Mini",
+      "brand": "Hill's",
+      "category": "food",
+      "species": ["dog"],
+      "description": "Alimento seco formulado para perros adultos de razas pequeñas y miniatura, con proteínas de alta calidad y nutrientes para mantener masa muscular y salud digestiva.",
+      "presentation": "Bolsa",
+      "weight": "2 kg",
+      "image": "https://res.cloudinary.com/tu-cloud/image/upload/hills-adult-small-mini.jpg",
+      "active": true
+    },
+    {
+      "id": "hills-sensitive-stomach-2kg",
+      "name": "Hill's Science Diet Sensitive Stomach & Skin",
+      "brand": "Hill's",
+      "category": "food",
+      "species": ["dog"],
+      "description": "Alimento formulado para perros con sensibilidad digestiva y problemas de piel, con fibra prebiótica y ácidos grasos omega 6.",
+      "presentation": "Bolsa",
+      "weight": "2 kg",
+      "image": "https://res.cloudinary.com/tu-cloud/image/upload/hills-sensitive.jpg",
+      "active": true
+    },
+    {
+      "id": "fortiflora-canino-30sobres",
+      "name": "FortiFlora Probiótico Canino",
+      "brand": "Purina Pro Plan",
+      "category": "supplement",
+      "species": ["dog"],
+      "description": "Suplemento probiótico en sobres que ayuda a restablecer la flora intestinal y mejorar la digestión en perros con trastornos gastrointestinales o estrés.",
+      "presentation": "Caja 30 sobres",
+      "weight": "30 g",
+      "image": "https://res.cloudinary.com/tu-cloud/image/upload/fortiflora.jpg",
+      "active": true
+    },
+    {
+      "id": "fortiflora-felino-30",
+      "name": "FortiFlora Probiótico Felino",
+      "brand": "Purina Pro Plan",
+      "category": "supplement",
+      "species": ["cat"],
+      "description": "Probiótico veterinario para gatos que ayuda a mejorar la salud digestiva, reforzar el sistema inmunológico y aumentar la palatabilidad del alimento.",
+      "presentation": "Caja 30 sobres",
+      "weight": "30 g",
+      "image": "https://res.cloudinary.com/tu-cloud/image/upload/fortiflora-cat.jpg",
+      "active": true
+    },
+    {
+      "id": "hemolitan-30ml",
+      "name": "Hemolitan Pet",
+      "brand": "Vetnil",
+      "category": "supplement",
+      "species": ["dog", "cat"],
+      "description": "Suplemento vitamínico y mineral con hierro indicado para apoyar la recuperación nutricional, crecimiento y estados de anemia en perros y gatos.",
+      "presentation": "Frasco",
+      "weight": "30 ml",
+      "image": "https://res.cloudinary.com/tu-cloud/image/upload/hemolitan.jpg",
+      "active": true
+    },
+    {
+      "id": "kong-classic-m",
+      "name": "Kong Classic",
+      "brand": "Kong",
+      "category": "accesories",
+      "species": ["dog"],
+      "description": "Juguete de goma natural ultra resistente diseñado para masticación y enriquecimiento mental, ideal para rellenar con snacks.",
+      "presentation": "Unidad",
+      "weight": "Talla M",
+      "image": "https://res.cloudinary.com/tu-cloud/image/upload/kong-classic.jpg",
+      "active": true
+    },
+    {
+      "id": "arena-bentonita-10kg",
+      "name": "Arena para gatos bentonita aglomerante",
+      "brand": "Generic",
+      "category": "hygiene",
+      "species": ["cat"],
+      "description": "Arena sanitaria aglomerante a base de bentonita que controla olores y facilita la limpieza diaria de la bandeja sanitaria.",
+      "presentation": "Bolsa",
+      "weight": "10 kg",
+      "image": "https://res.cloudinary.com/tu-cloud/image/upload/arena-bentonita.jpg",
+      "active": true
+    },
+    {
+      "id": "snack-dental-perro-150g",
+      "name": "Snack dental para perro",
+      "brand": "Generic",
+      "category": "food",
+      "species": ["dog"],
+      "description": "Snack masticable diseñado para ayudar a reducir la acumulación de placa y sarro, promoviendo una mejor higiene oral.",
+      "presentation": "Paquete",
+      "weight": "150 g",
+      "image": "https://res.cloudinary.com/tu-cloud/image/upload/snack-dental.jpg",
+      "active": true
+    },
+    {
+      "id": "shampoo-veterinario-neutro-250ml",
+      "name": "Shampoo veterinario neutro",
+      "brand": "Generic",
+      "category": "hygiene",
+      "species": ["dog", "cat"],
+      "description": "Shampoo suave con pH balanceado para la limpieza frecuente de la piel y pelaje de perros y gatos.",
+      "presentation": "Botella",
+      "weight": "250 ml",
+      "image": "https://res.cloudinary.com/tu-cloud/image/upload/shampoo.jpg",
+      "active": true
+    }
+  ]

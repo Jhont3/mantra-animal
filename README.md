@@ -1,1 +1,1 @@
-# mantra-animal
+Personal project to an eshop and promotion of veretinarian domilicialy atention using next js, supabase, cloudinary.
