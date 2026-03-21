@@ -1,32 +1,30 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 export default function PageLoader() {
-  const [visible, setVisible] = useState(true);
+  const [fading, setFading] = useState(false);
+  const [gone, setGone] = useState(false);
 
   useEffect(() => {
-    // Hide after the page has hydrated
-    const timer = setTimeout(() => setVisible(false), 800);
-    return () => clearTimeout(timer);
+    const fadeTimer = setTimeout(() => setFading(true), 600);
+    const removeTimer = setTimeout(() => setGone(true), 1100);
+    return () => { clearTimeout(fadeTimer); clearTimeout(removeTimer); };
   }, []);
 
-  if (!visible) return null;
+  if (gone) return null;
 
   return (
     <div
       aria-hidden="true"
       className="fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-500"
-      style={{ opacity: visible ? 1 : 0, pointerEvents: "none" }}
+      style={{ opacity: fading ? 0 : 1, pointerEvents: "none" }}
     >
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src="/imgs/loader-veterinarian.svg"
         alt="Cargando Mantra Animal"
-        width={160}
-        height={160}
-        priority
-        className="fade-in"
+        className="fade-in w-72 max-w-[80vw]"
       />
     </div>
   );

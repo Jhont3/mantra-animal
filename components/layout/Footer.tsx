@@ -14,9 +14,9 @@ export default function Footer() {
             <Image
               src="/imgs/logo-white.svg"
               alt="Mantra Animal"
-              width={140}
-              height={40}
-              className="mb-4"
+              width={280}
+              height={80}
+              className="h-10 w-auto mb-4"
             />
             <p className="text-sm text-gray-400 max-w-xs">
               Medicina veterinaria en casa. Atención domiciliaria para tu mascota en el Área

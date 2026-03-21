@@ -51,24 +51,26 @@ export default async function LandingPage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="relative bg-gradient-to-br from-surface via-white to-blue-50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <section className="relative bg-surface overflow-hidden">
+        {/* Subtle background accent */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_60%_-10%,rgba(116,170,174,0.18),transparent)]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-28">
           <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
             {/* Text */}
             <div className="flex-1 text-center lg:text-left slide-up">
-              <span className="inline-block text-xs font-semibold text-primary-light uppercase tracking-widest mb-4">
-                Medellín · Área Metropolitana
+              <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-5 bg-primary/8 rounded-full px-3 py-1">
+                📍 Medellín · Área Metropolitana
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                 Medicina veterinaria{" "}
-                <span className="text-primary">en casa</span> 🤍
+                <span className="text-primary italic">en casa</span> 🤍
               </h1>
-              <p className="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0">
+              <p className="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
                 Gastroenterología, consulta e imagenología a domicilio para perros y gatos.
                 Sin estrés, sin filas. Tu mascota merece lo mejor.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                <Link href="/shop" className="btn-primary text-base py-3 px-7 text-center">
+                <Link href="/shop" className="btn-primary text-base py-3 px-7">
                   Ver tienda
                 </Link>
                 <WhatsAppCTA
@@ -94,14 +96,30 @@ export default async function LandingPage() {
         </div>
       </section>
 
+      {/* ── Trust bar ────────────────────────────────────────────── */}
+      <section className="border-y border-border bg-white py-5">
+        <div className="max-w-4xl mx-auto px-4 flex flex-wrap justify-center gap-6 sm:gap-12 text-sm text-gray-600 font-medium">
+          {[
+            { icon: "🏠", label: "Atención domiciliaria" },
+            { icon: "🐾", label: "Perros y gatos" },
+            { icon: "🎓", label: "Especialistas certificados" },
+            { icon: "⚡", label: "Cita en 24 h" },
+          ].map(({ icon, label }) => (
+            <span key={label} className="flex items-center gap-2">
+              <span>{icon}</span>{label}
+            </span>
+          ))}
+        </div>
+      </section>
+
       {/* ── Services ─────────────────────────────────────────────── */}
       <section id="services" className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 slide-up">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
               Nuestros servicios
             </h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
+            <p className="text-muted max-w-xl mx-auto">
               Atención veterinaria especializada, directamente en tu domicilio.
             </p>
           </div>
@@ -110,10 +128,12 @@ export default async function LandingPage() {
             {SERVICES.map((service, i) => (
               <article
                 key={service.title}
-                className={`bg-surface rounded-2xl p-7 border border-border hover:border-primary/30 hover:shadow-md transition-all slide-up stagger-${i + 1}`}
+                className={`bg-surface rounded-2xl p-7 border border-border hover:border-primary/40 hover:shadow-md transition-all slide-up stagger-${i + 1}`}
               >
-                <span className="text-4xl block mb-4">{service.icon}</span>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-3xl mb-5">
+                  {service.icon}
+                </div>
+                <h3 className="font-display text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-5">{service.description}</p>
                 <WhatsAppCTA
                   message={serviceInquiryMessage(service.query)}
@@ -133,20 +153,20 @@ export default async function LandingPage() {
             <Image
               src="/imgs/logo-white.svg"
               alt="Mantra Animal"
-              width={160}
-              height={46}
-              className="mx-auto mb-6"
+              width={280}
+              height={80}
+              className="h-12 w-auto mx-auto mb-8"
             />
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
               Nuestra misión
             </h2>
-            <p className="text-blue-100 text-lg leading-relaxed mb-6">
+            <p className="text-white/80 text-lg leading-relaxed mb-6">
               En Mantra Animal creemos que cada mascota merece atención veterinaria de la más
               alta calidad, sin que su familia tenga que enfrentar el estrés de un viaje a la
               clínica. Llevamos la medicina veterinaria especializada hasta la puerta de tu casa
               en el Área Metropolitana de Medellín.
             </p>
-            <p className="text-blue-200 text-base">
+            <p className="text-white/60 text-base">
               Perros, gatos y sus familias: eso es lo que nos importa.
             </p>
           </div>
@@ -159,10 +179,10 @@ export default async function LandingPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-10">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900">
                   Productos destacados
                 </h2>
-                <p className="text-gray-500 mt-1 text-sm">
+                <p className="text-muted mt-1 text-sm">
                   Los mejores productos para el cuidado de tu mascota
                 </p>
               </div>
@@ -172,7 +192,7 @@ export default async function LandingPage() {
             </div>
 
             {/* Mock payment banner */}
-            <div className="mb-6 p-3 rounded-lg bg-amber-50 border border-amber-200 text-sm text-amber-800 text-center">
+            <div className="mb-6 p-3 rounded-lg bg-accent/10 border border-accent/30 text-sm text-gray-700 text-center">
               💳 Pagos en línea próximamente. Por ahora, escríbenos por WhatsApp.
             </div>
 
@@ -192,11 +212,11 @@ export default async function LandingPage() {
       )}
 
       {/* ── Instagram CTA ─────────────────────────────────────────── */}
-      <section className="py-14 bg-gradient-to-r from-purple-50 via-pink-50 to-orange-50">
+      <section className="py-14 bg-surface border-t border-border">
         <div className="max-w-xl mx-auto px-4 text-center">
           <p className="text-4xl mb-4">📸</p>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Síguenos en Instagram</h2>
-          <p className="text-gray-500 mb-6">
+          <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">Síguenos en Instagram</h2>
+          <p className="text-muted mb-6">
             Consejos veterinarios, casos clínicos y mucho amor por las mascotas.
           </p>
           <a

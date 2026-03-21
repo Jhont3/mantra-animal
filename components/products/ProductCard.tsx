@@ -28,7 +28,7 @@ export default function ProductCard({ product, isFavorite = false, userId }: Pro
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover group-hover:scale-105 transition-transform duration-300"
-          onError={() => {}}
+
         />
         {/* Species badges */}
         <div className="absolute top-2 left-2 flex gap-1 flex-wrap">

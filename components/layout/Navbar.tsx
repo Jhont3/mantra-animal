@@ -14,9 +14,10 @@ export default async function Navbar() {
           <Image
             src="/imgs/logo-dark-green.svg"
             alt="Mantra Animal"
-            width={140}
-            height={40}
+            width={280}
+            height={80}
             priority
+            className="h-10 sm:h-12 w-auto"
           />
         </Link>
 

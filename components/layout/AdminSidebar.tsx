@@ -9,7 +9,7 @@ export default function AdminSidebar() {
       {/* Logo */}
       <div className="px-6 py-5 border-b border-gray-800">
         <Link href="/admin">
-          <Image src="/imgs/logo-white.svg" alt="Mantra Animal Admin" width={120} height={34} />
+          <Image src="/imgs/logo-white.svg" alt="Mantra Animal Admin" width={280} height={80} className="h-8 w-auto" />
         </Link>
         <p className="text-xs text-gray-500 mt-1">Panel de administración</p>
       </div>
