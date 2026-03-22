@@ -53,9 +53,9 @@ body {
     85%, 100%{ opacity: 0; transform: scale(1)   translateY(5px);  }
   }
 
-  .paw-1 { animation: pawStep 2.4s ease-in-out infinite; animation-delay: 0s;   }
-  .paw-2 { animation: pawStep 2.4s ease-in-out infinite; animation-delay: 0.7s; }
-  .paw-3 { animation: pawStep 2.4s ease-in-out infinite; animation-delay: 1.4s; }
+  .paw-1 { animation: pawStep 3.6s ease-in-out infinite; animation-delay: 0s;   }
+  .paw-2 { animation: pawStep 3.6s ease-in-out infinite; animation-delay: 1.0s; }
+  .paw-3 { animation: pawStep 3.6s ease-in-out infinite; animation-delay: 2.0s; }
 
   @keyframes loaderIn {
     from {
