@@ -51,67 +51,82 @@ export default async function LandingPage() {
 
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="relative bg-surface overflow-hidden">
-        {/* Subtle background accent */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_60%_-10%,rgba(116,170,174,0.18),transparent)]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-28">
-          <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
-            {/* Text */}
-            <div className="flex-1 text-center lg:text-left slide-up">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-5 bg-primary/8 rounded-full px-3 py-1">
-                📍 Medellín · Área Metropolitana
-              </span>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Medicina veterinaria{" "}
-                <span className="text-primary italic">en casa</span> 🤍
-              </h1>
-              <p className="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                Gastroenterología, consulta e imagenología a domicilio para perros y gatos.
-                Sin estrés, sin filas. Tu mascota merece lo mejor.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                <Link href="/shop" className="btn-primary text-base py-3 px-7">
-                  Ver tienda
-                </Link>
-                <WhatsAppCTA
-                  message={generalInquiryMessage()}
-                  label="Agendar cita"
-                  size="lg"
+      {/* ── Above-the-fold: Hero + scroll hint + Trust bar (100dvh) ── */}
+      <div className="min-h-[calc(100dvh-4rem)] flex flex-col">
+
+        {/* Hero */}
+        <section className="flex-1 relative bg-surface overflow-hidden flex items-center">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_60%_-10%,rgba(116,170,174,0.18),transparent)]" />
+          <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div className="flex flex-col-reverse lg:flex-row items-center gap-10">
+              {/* Text */}
+              <div className="flex-1 text-center lg:text-left slide-up">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-5 bg-primary/8 rounded-full px-3 py-1">
+                  📍 Medellín · Área Metropolitana
+                </span>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                  Medicina veterinaria{" "}
+                  <span className="text-primary italic">en casa</span> 🤍
+                </h1>
+                <p className="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                  Gastroenterología, consulta e imagenología a domicilio para perros y gatos.
+                  Sin estrés, sin filas. Tu mascota merece lo mejor.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                  <Link href="/shop" className="btn-primary text-base py-3 px-7">
+                    Ver tienda
+                  </Link>
+                  <WhatsAppCTA
+                    message={generalInquiryMessage()}
+                    label="Agendar cita"
+                    size="lg"
+                    variant="accent"
+                  />
+                </div>
+              </div>
+
+              {/* Illustration */}
+              <div className="flex-1 flex justify-center lg:justify-end slide-up stagger-2">
+                <Image
+                  src="/imgs/00 Grafico Veterinaria.webp"
+                  alt="Veterinaria a domicilio Mantra Animal"
+                  width={500}
+                  height={500}
+                  priority
+                  className="w-full max-w-xs sm:max-w-sm lg:max-w-md drop-shadow-xl"
                 />
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Illustration */}
-            <div className="flex-1 flex justify-center lg:justify-end slide-up stagger-2">
-              <Image
-                src="/imgs/00 Grafico Veterinaria.webp"
-                alt="Veterinaria a domicilio Mantra Animal"
-                width={500}
-                height={500}
-                priority
-                className="w-full max-w-sm lg:max-w-md drop-shadow-xl"
-              />
-            </div>
+        {/* Scroll indicator */}
+        <div className="flex justify-center py-3 bg-surface">
+          <div className="flex flex-col items-center gap-1 animate-bounce text-muted">
+            <span className="text-xs font-medium tracking-wide uppercase">Descubre más</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
           </div>
         </div>
-      </section>
 
-      {/* ── Trust bar ────────────────────────────────────────────── */}
-      <section className="border-y border-border bg-white py-5">
-        <div className="max-w-4xl mx-auto px-4 flex flex-wrap justify-center gap-6 sm:gap-12 text-sm text-gray-600 font-medium">
-          {[
-            { icon: "🏠", label: "Atención domiciliaria" },
-            { icon: "🐾", label: "Perros y gatos" },
-            { icon: "🎓", label: "Especialistas certificados" },
-            { icon: "⚡", label: "Cita en 24 h" },
-          ].map(({ icon, label }) => (
-            <span key={label} className="flex items-center gap-2">
-              <span>{icon}</span>{label}
-            </span>
-          ))}
-        </div>
-      </section>
+        {/* Trust bar */}
+        <section className="border-t border-border bg-white py-4">
+          <div className="max-w-4xl mx-auto px-4 flex flex-wrap justify-center gap-5 sm:gap-10 text-sm text-foreground font-medium">
+            {[
+              { icon: "🏠", label: "Atención domiciliaria" },
+              { icon: "🐾", label: "Perros y gatos" },
+              { icon: "🎓", label: "Especialistas certificados" },
+              { icon: "⚡", label: "Cita en 24 h" },
+            ].map(({ icon, label }) => (
+              <span key={label} className="flex items-center gap-2">
+                <span>{icon}</span>{label}
+              </span>
+            ))}
+          </div>
+        </section>
+
+      </div>
 
       {/* ── Services ─────────────────────────────────────────────── */}
       <section id="services" className="py-16 lg:py-24 bg-white">

@@ -5,6 +5,7 @@ interface Props {
   label?: string;
   className?: string;
   size?: "sm" | "md" | "lg";
+  variant?: "green" | "accent";
 }
 
 export default function WhatsAppCTA({
@@ -12,6 +13,7 @@ export default function WhatsAppCTA({
   label = "Comprar por WhatsApp",
   className = "",
   size = "md",
+  variant = "green",
 }: Props) {
   const url = buildWhatsAppUrl(message);
 
@@ -21,12 +23,17 @@ export default function WhatsAppCTA({
     lg:  "text-lg py-3 px-7",
   };
 
+  const variantClasses = {
+    green:  "bg-green-500 hover:bg-green-600 text-white",
+    accent: "bg-accent hover:bg-yellow-500 text-foreground",
+  };
+
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-colors ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center gap-2 rounded-lg font-medium transition-colors ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
     >
       {/* WhatsApp icon */}
       <svg
