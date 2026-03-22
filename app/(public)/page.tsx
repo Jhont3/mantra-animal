@@ -16,21 +16,21 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
-    icon: "🩺",
+    svg: "/imgs/imagenology.svg",
     title: "Consulta e imagenología",
     description:
       "Consulta veterinaria completa y estudios de imagen en la comodidad de tu hogar. Sin estrés para ti ni para tu mascota.",
     query: "Consulta e imagenología a domicilio",
   },
   {
-    icon: "🫀",
+    svg: "/imgs/gastro-consult.svg",
     title: "Gastroenterología",
     description:
       "Diagnóstico y tratamiento de problemas digestivos para perros y gatos por especialista en medicina interna.",
     query: "Gastroenterología veterinaria a domicilio",
   },
   {
-    icon: "🤝",
+    svg: "/imgs/domiciliary-consult.svg",
     title: "Interconsulta",
     description:
       "Coordinamos con tu veterinario de cabecera para ofrecerte una segunda opinión especializada sin salir de casa.",
@@ -113,19 +113,6 @@ export default async function LandingPage() {
         </div>
       </section>
 
-      {/* ── Categories ───────────────────────────────────────────── */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 slide-up">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
-              Compra por categoría
-            </h2>
-            <p className="text-muted text-sm">Todo lo que tu mascota necesita</p>
-          </div>
-          <CategoryScroller />
-        </div>
-      </section>
-
       {/* ── Services ─────────────────────────────────────────────── */}
       <section id="services" className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,8 +131,14 @@ export default async function LandingPage() {
                 key={service.title}
                 className={`bg-surface rounded-2xl p-7 border border-border hover:border-primary/40 hover:shadow-md transition-all slide-up stagger-${i + 1}`}
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-3xl mb-5">
-                  {service.icon}
+                <div className="w-16 h-16 mb-5">
+                  <Image
+                    src={service.svg}
+                    alt={service.title}
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <h3 className="font-display text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-5">{service.description}</p>
@@ -157,6 +150,19 @@ export default async function LandingPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Categories ───────────────────────────────────────────── */}
+      <section className="py-12 bg-surface border-t border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 slide-up">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+              Compra por categoría
+            </h2>
+            <p className="text-muted text-sm">Todo lo que tu mascota necesita</p>
+          </div>
+          <CategoryScroller />
         </div>
       </section>
 
