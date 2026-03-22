@@ -22,7 +22,7 @@ export default async function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground">
           <Link href="/" className="hover:text-primary transition-colors">
             Inicio
           </Link>

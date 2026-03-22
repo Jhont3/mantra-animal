@@ -8,15 +8,16 @@
   --font-display: var(--font-fraunces);
 
   /* Brand palette — Mantra Animal */
-  --color-primary:       #005150; /* midnight-green */
-  --color-primary-dark:  #003b3a;
-  --color-primary-light: #74aaae; /* moonstone */
-  --color-accent:        #acc353; /* yellow-green */
-  --color-surface:       #f5f3f0;
-  --color-border:        #DBD4CB; /* timberwolf */
-  --color-muted:         #979A9B; /* cadet-gray */
-  --color-success:       #22c55e;
-  --color-danger:        #ef4444;
+  --color-primary:        #005150; /* midnight-green */
+  --color-primary-dark:   #003b3a; /* functional hover — darkened midnight-green */
+  --color-primary-light:  #74aaae; /* moonstone */
+  --color-primary-medium: #6EA8AA; /* verdigris */
+  --color-accent:         #acc353; /* yellow-green */
+  --color-surface:        #f5f3f0; /* warm off-white tint */
+  --color-border:         #DBD4CB; /* timberwolf */
+  --color-muted:          #979A9B; /* cadet-gray */
+  --color-success:        #22c55e;
+  --color-danger:         #ef4444;
 }
 
 :root {
@@ -88,7 +89,7 @@ body {
   @apply inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors font-medium;
 }
 .btn-secondary {
-  @apply inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-900 py-2 px-4 rounded-lg transition-colors font-medium;
+  @apply inline-flex items-center justify-center bg-surface hover:bg-border text-foreground py-2 px-4 rounded-lg transition-colors font-medium;
 }
 .btn-outline {
   @apply inline-flex items-center justify-center border border-primary text-primary hover:bg-primary hover:text-white py-2 px-4 rounded-lg transition-colors font-medium;
@@ -97,5 +98,5 @@ body {
   @apply inline-flex items-center justify-center bg-danger hover:bg-red-600 text-white py-2 px-4 rounded-lg transition-colors font-medium;
 }
 .btn-disabled {
-  @apply inline-flex items-center justify-center bg-gray-300 text-gray-500 py-2 px-4 rounded-lg cursor-not-allowed font-medium;
+  @apply inline-flex items-center justify-center bg-border text-muted py-2 px-4 rounded-lg cursor-not-allowed font-medium;
 }
