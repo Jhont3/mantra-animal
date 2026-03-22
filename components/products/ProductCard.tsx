@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { buildWhatsAppUrl, productInquiryMessage } from "@/lib/whatsapp";
@@ -16,6 +19,7 @@ const SPECIES_LABELS: Record<string, string> = {
 };
 
 export default function ProductCard({ product, isFavorite = false, userId }: Props) {
+  const [imgSrc, setImgSrc] = useState(product.imageUrl);
   const waUrl = buildWhatsAppUrl(productInquiryMessage(product.name));
 
   return (
@@ -23,12 +27,12 @@ export default function ProductCard({ product, isFavorite = false, userId }: Pro
       {/* Image */}
       <Link href={`/shop/${product.slug}`} className="block relative aspect-square overflow-hidden bg-surface">
         <Image
-          src={product.imageUrl}
+          src={imgSrc}
           alt={product.name}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover group-hover:scale-105 transition-transform duration-300"
-
+          onError={() => setImgSrc("/imgs/placeholder.jpg")}
         />
         {/* Species badges */}
         <div className="absolute top-2 left-2 flex gap-1 flex-wrap">
