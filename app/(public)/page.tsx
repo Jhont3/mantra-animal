@@ -100,13 +100,12 @@ export default async function LandingPage() {
           </div>
         </section>
 
-        {/* Scroll indicator */}
-        <div className="flex justify-center py-3 bg-surface">
-          <div className="flex flex-col items-center gap-1 animate-bounce text-muted">
-            <span className="text-xs font-medium tracking-wide uppercase">Descubre más</span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
+        {/* Scroll indicator — walking paw steps */}
+        <div className="flex justify-center py-3 bg-surface" aria-hidden="true">
+          <div className="flex flex-col items-center gap-0.5">
+            <span className="paw-1 text-2xl block -translate-x-4 -rotate-12 text-primary-light">🐾</span>
+            <span className="paw-2 text-2xl block  translate-x-4  rotate-12  text-primary-light">🐾</span>
+            <span className="paw-3 text-2xl block -translate-x-2 -rotate-6  text-primary-light">🐾</span>
           </div>
         </div>
 
