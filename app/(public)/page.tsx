@@ -100,13 +100,9 @@ export default async function LandingPage() {
           </div>
         </section>
 
-        {/* Scroll indicator — walking paw steps */}
-        <div className="flex justify-center py-3 bg-surface" aria-hidden="true">
-          <div className="flex flex-col items-center gap-0.5">
-            <span className="paw-1 text-2xl block -translate-x-4 -rotate-12 text-primary-light">🐾</span>
-            <span className="paw-2 text-2xl block  translate-x-4  rotate-12  text-primary-light">🐾</span>
-            <span className="paw-3 text-2xl block -translate-x-2 -rotate-6  text-primary-light">🐾</span>
-          </div>
+        {/* Scroll indicator — paw walking downward */}
+        <div className="flex justify-center py-4 bg-surface" aria-hidden="true">
+          <span className="paw-walk text-2xl inline-block">🐾</span>
         </div>
 
         {/* Trust bar */}
