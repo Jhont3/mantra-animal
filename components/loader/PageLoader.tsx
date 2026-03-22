@@ -24,7 +24,10 @@ export default function PageLoader() {
       <img
         src="/imgs/loader-veterinarian.svg"
         alt="Cargando Mantra Animal"
-        className="fade-in w-72 max-w-[80vw]"
+        width={288}
+        height={194}
+        className="loader-in"
+        style={{ maxWidth: "80vw", height: "auto" }}
       />
     </div>
   );
