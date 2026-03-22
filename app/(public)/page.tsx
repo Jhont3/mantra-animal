@@ -100,9 +100,30 @@ export default async function LandingPage() {
           </div>
         </section>
 
-        {/* Scroll indicator — paw walking downward */}
-        <div className="flex justify-center py-4 bg-surface" aria-hidden="true">
-          <span className="paw-walk text-2xl inline-block">🐾</span>
+        {/* Scroll indicator — 3 single paw prints stepping down */}
+        <div className="flex justify-center py-3 bg-surface" aria-hidden="true">
+          <div className="flex flex-col items-center gap-0.5">
+            {[
+              { cls: "paw-1", tx: "-translate-x-4", rot: "-rotate-12" },
+              { cls: "paw-2", tx:  "translate-x-4", rot:  "rotate-12" },
+              { cls: "paw-3", tx: "-translate-x-1", rot: "-rotate-6"  },
+            ].map(({ cls, tx, rot }) => (
+              <svg
+                key={cls}
+                viewBox="0 0 40 44"
+                className={`${cls} ${tx} ${rot} w-6 h-6 text-primary-light fill-current`}
+                aria-hidden="true"
+              >
+                {/* Central pad */}
+                <ellipse cx="20" cy="33" rx="10" ry="8" />
+                {/* Toe beans */}
+                <ellipse cx="7"  cy="19" rx="4.5" ry="5" />
+                <ellipse cx="15" cy="13" rx="4.5" ry="5" />
+                <ellipse cx="25" cy="13" rx="4.5" ry="5" />
+                <ellipse cx="33" cy="19" rx="4.5" ry="5" />
+              </svg>
+            ))}
+          </div>
         </div>
 
         {/* Trust bar */}
