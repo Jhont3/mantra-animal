@@ -7,6 +7,8 @@ import { buildWhatsAppUrl, generalInquiryMessage, serviceInquiryMessage } from "
 import ProductCard from "@/components/products/ProductCard";
 import WhatsAppCTA from "@/components/whatsapp/WhatsAppCTA";
 import CategoryScroller from "@/components/categories/CategoryScroller";
+import { HiOutlineHome, HiOutlineAcademicCap } from "react-icons/hi2";
+import { MdOutlinePets } from "react-icons/md";
 
 export const metadata: Metadata = {
   title: "Mantra Animal — Medicina veterinaria en casa",
@@ -128,17 +130,19 @@ export default async function LandingPage() {
 
         {/* Trust bar */}
         <section className="border-t border-border bg-white py-4">
-          <div className="max-w-4xl mx-auto px-4 flex flex-wrap justify-center gap-5 sm:gap-10 text-sm text-foreground font-medium">
-            {[
-              { icon: "🏠", label: "Atención domiciliaria" },
-              { icon: "🐾", label: "Perros y gatos" },
-              { icon: "🎓", label: "Especialistas certificados" },
-              { icon: "⚡", label: "Cita en 24 h" },
-            ].map(({ icon, label }) => (
-              <span key={label} className="flex items-center gap-2">
-                <span>{icon}</span>{label}
-              </span>
-            ))}
+          <div className="max-w-3xl mx-auto px-4 flex flex-wrap justify-center gap-6 sm:gap-12 text-sm text-foreground font-medium">
+            <span className="flex items-center gap-2">
+              <HiOutlineHome className="w-5 h-5 text-primary shrink-0" />
+              Atención domiciliaria
+            </span>
+            <span className="flex items-center gap-2">
+              <MdOutlinePets className="w-5 h-5 text-primary shrink-0" />
+              Perros y gatos
+            </span>
+            <span className="flex items-center gap-2">
+              <HiOutlineAcademicCap className="w-5 h-5 text-primary shrink-0" />
+              Especialistas certificados
+            </span>
           </div>
         </section>
 
