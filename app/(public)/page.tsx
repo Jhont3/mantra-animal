@@ -114,13 +114,13 @@ export default async function LandingPage() {
                 className={`${cls} ${tx} ${rot} w-6 h-6 text-primary-light fill-current`}
                 aria-hidden="true"
               >
-                {/* Central pad */}
-                <ellipse cx="20" cy="33" rx="10" ry="8" />
-                {/* Toe beans */}
-                <ellipse cx="7"  cy="19" rx="4.5" ry="5" />
-                <ellipse cx="15" cy="13" rx="4.5" ry="5" />
-                <ellipse cx="25" cy="13" rx="4.5" ry="5" />
-                <ellipse cx="33" cy="19" rx="4.5" ry="5" />
+                {/* Central pad (top) */}
+                <ellipse cx="20" cy="11" rx="10" ry="8" />
+                {/* Toe beans (bottom — pointing down) */}
+                <ellipse cx="7"  cy="25" rx="4.5" ry="5" />
+                <ellipse cx="15" cy="31" rx="4.5" ry="5" />
+                <ellipse cx="25" cy="31" rx="4.5" ry="5" />
+                <ellipse cx="33" cy="25" rx="4.5" ry="5" />
               </svg>
             ))}
           </div>
