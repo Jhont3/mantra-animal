@@ -162,12 +162,12 @@ export default async function LandingPage() {
                 key={service.title}
                 className={`bg-surface rounded-2xl p-7 border border-border hover:border-primary/40 hover:shadow-md transition-all slide-up stagger-${i + 1}`}
               >
-                <div className="w-16 h-16 mb-5">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 mb-5">
                   <Image
                     src={service.svg}
                     alt={service.title}
-                    width={64}
-                    height={64}
+                    width={112}
+                    height={112}
                     className="w-full h-full object-contain"
                   />
                 </div>

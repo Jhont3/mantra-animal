@@ -57,6 +57,12 @@ body {
   .paw-2 { animation: pawStep 3.6s ease-in-out infinite; animation-delay: 1.0s; }
   .paw-3 { animation: pawStep 3.6s ease-in-out infinite; animation-delay: 2.0s; }
 
+  @keyframes logoPulse {
+    0%, 100% { transform: scale(1);    opacity: 1;   }
+    50%       { transform: scale(1.06); opacity: 0.8; }
+  }
+  .logo-pulse { animation: logoPulse 1.6s ease-in-out infinite; }
+
   @keyframes loaderIn {
     from {
       opacity: 0;
