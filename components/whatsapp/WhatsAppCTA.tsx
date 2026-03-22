@@ -25,7 +25,7 @@ export default function WhatsAppCTA({
 
   const variantClasses = {
     green:  "bg-green-500 hover:bg-green-600 text-white",
-    accent: "bg-accent hover:bg-yellow-500 text-foreground",
+    accent: "bg-accent hover:bg-primary-medium text-foreground",
   };
 
   return (

@@ -76,12 +76,12 @@ export default function CategoryScroller() {
             href={`/shop?category=${cat.slug}` as Route}
             className={`snap-start shrink-0 w-44 sm:w-48 flex flex-col items-center gap-3 rounded-2xl border ${cat.border} ${cat.bg} p-5 transition-all duration-200 group`}
           >
-            <div className="w-24 h-24 flex items-center justify-center">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center">
               <Image
                 src={cat.svg}
                 alt={cat.label}
-                width={96}
-                height={96}
+                width={128}
+                height={128}
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </div>

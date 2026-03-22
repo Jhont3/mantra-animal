@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
+import { Plus_Jakarta_Sans, Fraunces, Cedarville_Cursive, Roboto_Serif } from "next/font/google";
 import "./globals.css";
 import PageLoader from "@/components/loader/PageLoader";
 
@@ -14,6 +14,18 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   weight: ["400", "600", "700", "900"],
   style: ["normal", "italic"],
+});
+
+const cedarville = Cedarville_Cursive({
+  variable: "--font-cedar",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const robotoSerif = Roboto_Serif({
+  variable: "--font-roboto-serif",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -34,7 +46,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${jakarta.variable} ${fraunces.variable} h-full antialiased`}>
+    <html lang="es" className={`${jakarta.variable} ${fraunces.variable} ${cedarville.variable} ${robotoSerif.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white text-gray-900">
         <PageLoader />
         {children}

@@ -6,6 +6,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-jakarta);
   --font-display: var(--font-fraunces);
+  --font-cursive: var(--font-cedar);
+  --font-serif: var(--font-roboto-serif);
 
   /* Brand palette — Mantra Animal */
   --color-primary:        #005150; /* midnight-green */
@@ -23,6 +25,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+html {
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -58,22 +64,14 @@ body {
   .paw-3 { animation: pawStep 3.6s ease-in-out infinite; animation-delay: 2.0s; }
 
   @keyframes logoPulse {
-    0%, 100% { transform: scale(1);    opacity: 1;   }
-    50%       { transform: scale(1.06); opacity: 0.8; }
+    0%, 100% { opacity: 1;   }
+    50%       { opacity: 0.5; }
   }
   .logo-pulse { animation: logoPulse 1.6s ease-in-out infinite; }
 
   @keyframes loaderIn {
-    from {
-      opacity: 0;
-      transform: scale(0.88);
-      filter: blur(8px);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-      filter: blur(0px);
-    }
+    from { opacity: 0; transform: scale(0.88); }
+    to   { opacity: 1; transform: scale(1);    }
   }
 
   .loader-in {

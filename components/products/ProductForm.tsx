@@ -25,7 +25,7 @@ export default function ProductForm({
   const [state, formAction, isPending] = useActionState(action, initial);
 
   return (
-    <form action={formAction} className="space-y-5" encType="multipart/form-data">
+    <form action={formAction} className="space-y-5">
       {!state.success && (
         <p className="text-sm text-danger bg-red-50 border border-red-200 rounded-lg p-3">
           {state.error}
@@ -99,19 +99,24 @@ export default function ProductForm({
       </div>
 
       {/* Image */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">
           Imagen del producto
         </label>
+        <input
+          type="url"
+          name="imageUrl"
+          defaultValue={defaultValues?.imageUrl ?? ""}
+          placeholder="https://res.cloudinary.com/…"
+          className="w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+        />
+        <p className="text-xs text-muted">O sube un archivo (reemplaza la URL):</p>
         <input
           type="file"
           name="image"
           accept="image/*"
           className="w-full text-sm text-gray-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-primary file:text-white file:text-sm file:cursor-pointer"
         />
-        {defaultValues?.imageUrl && (
-          <p className="text-xs text-muted mt-1">Imagen actual: {defaultValues.imageUrl}</p>
-        )}
       </div>
 
       {/* Active toggle */}

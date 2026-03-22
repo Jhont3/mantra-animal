@@ -58,11 +58,14 @@ export async function createProductAction(
   }
 
   const imageFile = formData.get("image") as File | null;
+  const imageUrlInput = (formData.get("imageUrl") as string | null)?.trim() ?? "";
   let imageUrl = "/imgs/placeholder.jpg";
 
   if (imageFile && imageFile.size > 0) {
     const buffer = Buffer.from(await imageFile.arrayBuffer());
     imageUrl = await uploadImage(buffer);
+  } else if (imageUrlInput) {
+    imageUrl = imageUrlInput;
   }
 
   const slug = slugify(parsed.data.name);
@@ -100,11 +103,14 @@ export async function updateProductAction(
   }
 
   const imageFile = formData.get("image") as File | null;
+  const imageUrlInput = (formData.get("imageUrl") as string | null)?.trim() ?? "";
   let imageUrl: string | undefined;
 
   if (imageFile && imageFile.size > 0) {
     const buffer = Buffer.from(await imageFile.arrayBuffer());
     imageUrl = await uploadImage(buffer);
+  } else if (imageUrlInput) {
+    imageUrl = imageUrlInput;
   }
 
   await prisma.product.update({

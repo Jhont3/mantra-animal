@@ -19,7 +19,7 @@ export default async function Navbar() {
             width={280}
             height={80}
             priority
-            className="h-10 sm:h-12 w-auto"
+            className="h-12 sm:h-14 w-auto"
           />
         </Link>
 

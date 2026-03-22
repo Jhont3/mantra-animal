@@ -8,7 +8,7 @@ import ProductCard from "@/components/products/ProductCard";
 import WhatsAppCTA from "@/components/whatsapp/WhatsAppCTA";
 import CategoryScroller from "@/components/categories/CategoryScroller";
 import { HiOutlineHome, HiOutlineAcademicCap } from "react-icons/hi2";
-import { MdOutlinePets } from "react-icons/md";
+import { FaCat } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Mantra Animal — Medicina veterinaria en casa",
@@ -68,9 +68,9 @@ export default async function LandingPage() {
                 </span>
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                   Medicina veterinaria{" "}
-                  <span className="text-primary italic">en casa</span> 🤍
+                  <span className="font-cursive italic text-primary">en casa</span> 🤍
                 </h1>
-                <p className="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                <p className="font-serif text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
                   Gastroenterología, consulta e imagenología a domicilio para perros y gatos.
                   Sin estrés, sin filas. Tu mascota merece lo mejor.
                 </p>
@@ -136,7 +136,7 @@ export default async function LandingPage() {
               Atención domiciliaria
             </span>
             <span className="flex items-center gap-2">
-              <MdOutlinePets className="w-5 h-5 text-primary shrink-0" />
+              <FaCat className="w-5 h-5 text-primary shrink-0" />
               Perros y gatos
             </span>
             <span className="flex items-center gap-2">
@@ -155,7 +155,7 @@ export default async function LandingPage() {
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
               Nuestros servicios
             </h2>
-            <p className="text-muted max-w-xl mx-auto">
+            <p className="font-serif text-muted max-w-xl mx-auto">
               Atención veterinaria especializada, directamente en tu domicilio.
             </p>
           </div>
@@ -166,17 +166,17 @@ export default async function LandingPage() {
                 key={service.title}
                 className={`bg-surface rounded-2xl p-7 border border-border hover:border-primary/40 hover:shadow-md transition-all slide-up stagger-${i + 1}`}
               >
-                <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 mb-5">
+                <div className="w-32 h-32 md:w-44 md:h-44 lg:w-52 lg:h-52 mb-5 mx-auto">
                   <Image
                     src={service.svg}
                     alt={service.title}
-                    width={112}
-                    height={112}
+                    width={208}
+                    height={208}
                     className="w-full h-full object-contain"
                   />
                 </div>
                 <h3 className="font-display text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-5">{service.description}</p>
+                <p className="font-serif text-gray-600 text-sm leading-relaxed mb-5">{service.description}</p>
                 <WhatsAppCTA
                   message={serviceInquiryMessage(service.query)}
                   label="Solicitar servicio"
