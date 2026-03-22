@@ -6,6 +6,7 @@ import { prisma } from "@/lib/prisma";
 import { buildWhatsAppUrl, generalInquiryMessage, serviceInquiryMessage } from "@/lib/whatsapp";
 import ProductCard from "@/components/products/ProductCard";
 import WhatsAppCTA from "@/components/whatsapp/WhatsAppCTA";
+import CategoryScroller from "@/components/categories/CategoryScroller";
 
 export const metadata: Metadata = {
   title: "Mantra Animal — Medicina veterinaria en casa",
@@ -112,6 +113,19 @@ export default async function LandingPage() {
         </div>
       </section>
 
+      {/* ── Categories ───────────────────────────────────────────── */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 slide-up">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+              Compra por categoría
+            </h2>
+            <p className="text-muted text-sm">Todo lo que tu mascota necesita</p>
+          </div>
+          <CategoryScroller />
+        </div>
+      </section>
+
       {/* ── Services ─────────────────────────────────────────────── */}
       <section id="services" className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,33 +156,6 @@ export default async function LandingPage() {
                 />
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── About ─────────────────────────────────────────────────── */}
-      <section id="about" className="py-16 lg:py-24 bg-primary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center slide-up">
-            <Image
-              src="/imgs/logo-white.svg"
-              alt="Mantra Animal"
-              width={280}
-              height={80}
-              className="h-12 w-auto mx-auto mb-8"
-            />
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
-              Nuestra misión
-            </h2>
-            <p className="text-white/80 text-lg leading-relaxed mb-6">
-              En Mantra Animal creemos que cada mascota merece atención veterinaria de la más
-              alta calidad, sin que su familia tenga que enfrentar el estrés de un viaje a la
-              clínica. Llevamos la medicina veterinaria especializada hasta la puerta de tu casa
-              en el Área Metropolitana de Medellín.
-            </p>
-            <p className="text-white/60 text-base">
-              Perros, gatos y sus familias: eso es lo que nos importa.
-            </p>
           </div>
         </div>
       </section>
