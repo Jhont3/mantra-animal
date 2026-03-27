@@ -54,7 +54,7 @@ export default async function LandingPage() {
   return (
     <>
       {/* ── Above-the-fold: Hero + scroll hint + Trust bar (100dvh) ── */}
-      <div className="min-h-[calc(100dvh-4rem)] flex flex-col">
+      <div className="min-h-[calc(100dvh-5rem)] flex flex-col">
 
         {/* Hero */}
         <section className="flex-1 relative bg-surface overflow-hidden flex items-center">
@@ -166,7 +166,7 @@ export default async function LandingPage() {
                 key={service.title}
                 className={`bg-surface rounded-2xl p-7 border border-border hover:border-primary/40 hover:shadow-md transition-all slide-up stagger-${i + 1}`}
               >
-                <div className="w-32 h-32 md:w-44 md:h-44 lg:w-52 lg:h-52 mb-5 mx-auto">
+                <div className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 mb-5 mx-auto">
                   <Image
                     src={service.svg}
                     alt={service.title}

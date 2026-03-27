@@ -9,7 +9,7 @@ export default async function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
 
         {/* Logo */}
         <Link href="/" className="shrink-0 flex items-center">
@@ -19,7 +19,7 @@ export default async function Navbar() {
             width={280}
             height={80}
             priority
-            className="h-12 sm:h-14 w-auto"
+            className="h-14 sm:h-16 w-auto"
           />
         </Link>
 
