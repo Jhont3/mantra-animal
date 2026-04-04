@@ -14,6 +14,8 @@ const registerSchema = loginSchema.extend({
   name: z.string().min(2, "Nombre requerido"),
 });
 
+import { cookies } from "next/headers";
+
 export async function loginAction(
   _prev: ActionResult,
   formData: FormData
@@ -26,6 +28,19 @@ export async function loginAction(
   if (!parsed.success) {
     return { success: false, error: parsed.error.issues[0].message };
   }
+
+  // --- OFFLINE / MOCK LOGIN ---
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    console.warn("⚠️ Offline Mode: Mocking login action.");
+    if (parsed.data.email === "admin@mantra.com" && parsed.data.password === "admin123") {
+      const cookieStore = await cookies();
+      cookieStore.set("mock_session", "admin");
+      redirect("/admin/categories");
+    } else {
+      return { success: false, error: "Offline mode: Only admin@mantra.com / admin123 works." };
+    }
+  }
+  // ----------------------------
 
   const supabase = await createSupabaseServerClient();
   const { error } = await supabase.auth.signInWithPassword(parsed.data);
@@ -51,6 +66,10 @@ export async function registerAction(
     return { success: false, error: parsed.error.issues[0].message };
   }
 
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    return { success: false, error: "Registro deshabilitado en modo offline. Ingresa con admin directamente." };
+  }
+
   const supabase = await createSupabaseServerClient();
   const { error } = await supabase.auth.signUp({
     email: parsed.data.email,
@@ -66,6 +85,12 @@ export async function registerAction(
 }
 
 export async function logoutAction(): Promise<void> {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    const cookieStore = await cookies();
+    cookieStore.delete("mock_session");
+    redirect("/");
+  }
+
   const supabase = await createSupabaseServerClient();
   await supabase.auth.signOut();
   redirect("/");
@@ -73,6 +98,15 @@ export async function logoutAction(): Promise<void> {
 
 /** Returns the current user or null */
 export async function getCurrentUser() {
+  // If running locally without .env keys, use mock session cookies
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    const cookieStore = await cookies();
+    if (cookieStore.get("mock_session")?.value === "admin") {
+      return { id: "mock-admin", email: "admin@mantra.com", isAdmin: true };
+    }
+    return null;
+  }
+
   const supabase = await createSupabaseServerClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return null;

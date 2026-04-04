@@ -42,12 +42,50 @@ const SERVICES = [
 
 export default async function LandingPage() {
   await connection();
-  const featuredProducts = await prisma.product.findMany({
-    where: { active: true },
-    include: { category: true },
-    orderBy: { createdAt: "desc" },
-    take: 6,
-  });
+  let featuredProducts: any[] = [];
+  try {
+    featuredProducts = await prisma.product.findMany({
+      where: { active: true },
+      include: { category: true },
+      orderBy: { createdAt: "desc" },
+      take: 6,
+    });
+  } catch (err) {
+    // If running purely frontend locally without the database, fallback to mocks
+    console.warn("⚠️ Database not reachable. Loaded fallback mock products for offline UI testing.");
+    featuredProducts = [
+      {
+        id: "mock-prod-1",
+        name: "Hill's Science Diet Adult Small & Mini",
+        slug: "hills-adult-small-mini",
+        price: 95000,
+        brand: "Hill's",
+        species: ["dog"],
+        imageUrl: "https://res.cloudinary.com/tu-cloud/image/upload/hills-adult-small-mini.jpg",
+        category: { id: "cat-1", name: "Alimento" },
+      },
+      {
+        id: "mock-prod-2",
+        name: "FortiFlora Probiótico Canino",
+        slug: "fortiflora-canino",
+        price: 120000,
+        brand: "Purina Pro Plan",
+        species: ["dog"],
+        imageUrl: "https://res.cloudinary.com/tu-cloud/image/upload/fortiflora.jpg",
+        category: { id: "cat-2", name: "Suplementos" },
+      },
+      {
+        id: "mock-prod-3",
+        name: "Arena para gatos bentonita aglomerante",
+        slug: "arena-bentonita",
+        price: 45000,
+        brand: "Generic",
+        species: ["cat"],
+        imageUrl: "https://res.cloudinary.com/tu-cloud/image/upload/arena-bentonita.jpg",
+        category: { id: "cat-3", name: "Higiene" },
+      }
+    ];
+  }
 
   const waGeneral = buildWhatsAppUrl(generalInquiryMessage());
 
