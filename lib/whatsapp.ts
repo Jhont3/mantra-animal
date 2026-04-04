@@ -1,4 +1,4 @@
-const PHONE = process.env.WHATSAPP_PHONE_NUMBER ?? "573001234567";
+const PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER || process.env.WHATSAPP_PHONE_NUMBER || "573193098152";
 
 /** Build a wa.me link with a pre-filled message */
 export function buildWhatsAppUrl(message: string): string {
