@@ -38,13 +38,20 @@ export default function ProductFilters({ categories }: Props) {
         <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">
           Buscar
         </label>
-        <input
-          type="search"
-          defaultValue={activeSearch}
-          placeholder="Nombre del producto…"
-          onChange={(e) => updateParam("q", e.target.value || null)}
-          className="w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
-        />
+        <div className="relative flex items-center">
+          <input
+            type="search"
+            defaultValue={activeSearch}
+            placeholder="Nombre del producto…"
+            onChange={(e) => updateParam("q", e.target.value || null)}
+            className="w-full border-2 border-primary/30 rounded-xl pl-3 pr-11 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
+          />
+          <span className="absolute right-1.5 flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-white pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+            </svg>
+          </span>
+        </div>
       </div>
 
       {/* Category */}
