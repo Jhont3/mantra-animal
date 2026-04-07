@@ -45,11 +45,19 @@ export default async function LandingPage() {
   let featuredProducts: any[] = [];
   try {
     featuredProducts = await prisma.product.findMany({
-      where: { active: true },
+      where: { active: true, featuredOrder: { not: null } },
       include: { category: true },
-      orderBy: { createdAt: "desc" },
-      take: 6,
+      orderBy: { featuredOrder: "asc" },
     });
+    // Fallback: si no hay destacados, mostrar los 6 más recientes
+    if (featuredProducts.length === 0) {
+      featuredProducts = await prisma.product.findMany({
+        where: { active: true },
+        include: { category: true },
+        orderBy: { createdAt: "desc" },
+        take: 6,
+      });
+    }
   } catch (err) {
     // If running purely frontend locally without the database, fallback to mocks
     console.warn("⚠️ Database not reachable. Loaded fallback mock products for offline UI testing.");

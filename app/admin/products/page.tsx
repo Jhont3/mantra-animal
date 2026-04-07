@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { deleteProductFormAction } from "@/actions/products";
+import FeaturedToggle from "@/components/admin/FeaturedToggle";
 import type { Product } from "@prisma/client";
 import type { Category } from "@prisma/client";
 import { connection } from "next/server";
@@ -35,6 +36,7 @@ export default async function AdminProductsPage() {
               <th className="px-4 py-3 font-semibold text-gray-700 hidden sm:table-cell">Categoría</th>
               <th className="px-4 py-3 font-semibold text-gray-700 hidden md:table-cell">Precio</th>
               <th className="px-4 py-3 font-semibold text-gray-700">Estado</th>
+              <th className="px-4 py-3 font-semibold text-gray-700 text-center">Destacado</th>
               <th className="px-4 py-3 font-semibold text-gray-700">Acciones</th>
             </tr>
           </thead>
@@ -66,6 +68,9 @@ export default async function AdminProductsPage() {
                   <span className={`text-xs px-2 py-1 rounded-full font-medium ${p.active ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
                     {p.active ? "Activo" : "Inactivo"}
                   </span>
+                </td>
+                <td className="px-4 py-3 text-center">
+                  <FeaturedToggle productId={p.id} isFeatured={p.featuredOrder !== null} />
                 </td>
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-2">

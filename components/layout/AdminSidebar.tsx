@@ -18,6 +18,7 @@ export default function AdminSidebar() {
       <nav className="flex-1 px-4 py-6 space-y-1 text-sm">
         <SidebarLink href="/admin">Dashboard</SidebarLink>
         <SidebarLink href="/admin/products">Productos</SidebarLink>
+        <SidebarLink href={"/admin/featured" as Route}>Destacados</SidebarLink>
         <SidebarLink href="/admin/categories">Categorías</SidebarLink>
       </nav>
 

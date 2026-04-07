@@ -137,3 +137,68 @@ export async function deleteProductFormAction(formData: FormData): Promise<void>
   revalidatePath("/shop");
   revalidatePath("/admin/products");
 }
+
+export async function toggleFeaturedAction(productId: string): Promise<ActionResult> {
+  await requireAdmin();
+
+  const product = await prisma.product.findUnique({
+    where: { id: productId },
+    select: { featuredOrder: true },
+  });
+
+  if (!product) return { success: false, error: "Producto no encontrado" };
+
+  if (product.featuredOrder !== null) {
+    await prisma.product.update({
+      where: { id: productId },
+      data: { featuredOrder: null },
+    });
+  } else {
+    const maxOrder = await prisma.product.aggregate({
+      _max: { featuredOrder: true },
+    });
+    const nextOrder = (maxOrder._max.featuredOrder ?? 0) + 1;
+    await prisma.product.update({
+      where: { id: productId },
+      data: { featuredOrder: nextOrder },
+    });
+  }
+
+  revalidatePath("/");
+  revalidatePath("/admin/products");
+  revalidatePath("/admin/featured");
+  return { success: true, data: undefined };
+}
+
+export async function updateFeaturedOrderAction(
+  orderedIds: string[]
+): Promise<ActionResult> {
+  await requireAdmin();
+
+  await prisma.$transaction(
+    orderedIds.map((id, index) =>
+      prisma.product.update({
+        where: { id },
+        data: { featuredOrder: index + 1 },
+      })
+    )
+  );
+
+  revalidatePath("/");
+  revalidatePath("/admin/featured");
+  return { success: true, data: undefined };
+}
+
+export async function removeFeaturedAction(productId: string): Promise<ActionResult> {
+  await requireAdmin();
+
+  await prisma.product.update({
+    where: { id: productId },
+    data: { featuredOrder: null },
+  });
+
+  revalidatePath("/");
+  revalidatePath("/admin/products");
+  revalidatePath("/admin/featured");
+  return { success: true, data: undefined };
+}

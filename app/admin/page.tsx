@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Route } from "next";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { connection } from "next/server";
@@ -8,10 +9,11 @@ export const metadata: Metadata = { title: "Admin — Dashboard" };
 
 export default async function AdminDashboard() {
   await connection();
-  const [productCount, categoryCount, activeCount] = await Promise.all([
+  const [productCount, categoryCount, activeCount, featuredCount] = await Promise.all([
     prisma.product.count(),
     prisma.category.count(),
     prisma.product.count({ where: { active: true } }),
+    prisma.product.count({ where: { featuredOrder: { not: null } } }),
   ]);
 
   return (
@@ -21,7 +23,7 @@ export default async function AdminDashboard() {
         <DeployStatus />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <Link
           href="/admin/products"
           className="bg-white rounded-xl border border-border p-5 hover:border-primary/30 hover:shadow-sm transition-all"
@@ -42,6 +44,13 @@ export default async function AdminDashboard() {
         >
           <p className="text-3xl font-bold text-primary mb-1">{categoryCount}</p>
           <p className="text-sm text-muted">Categorías</p>
+        </Link>
+        <Link
+          href={"/admin/featured" as Route}
+          className="bg-white rounded-xl border border-border p-5 hover:border-primary/30 hover:shadow-sm transition-all"
+        >
+          <p className="text-3xl font-bold text-amber-500 mb-1">{featuredCount}</p>
+          <p className="text-sm text-muted">Destacados</p>
         </Link>
       </div>
 

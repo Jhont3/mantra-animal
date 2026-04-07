@@ -20,8 +20,9 @@ model Product {
   price        Float
   presentation String
   imageUrl     String
-  active       Boolean    @default(true)
-  categoryId   String
+  active        Boolean    @default(true)
+  featuredOrder Int?
+  categoryId    String
   category     Category   @relation(fields: [categoryId], references: [id])
   species      Species[]
   favorites    Favorite[]
